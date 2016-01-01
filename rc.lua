@@ -417,10 +417,8 @@ awful.rules.rules = {
       properties = { tag = tags[1][5],
                      maximized_vertical = true,
                      maximized_horizontal = true } },
-    { rule = { class = "Transmission" },
-       properties = { tag = tags[1][8],
-                      maximized_horizontal = true,
-                      maximized_horizontal = true } },
+    --{ rule = { class = "Transmission" },
+    --   properties = { tag = tags[1][8] } },
     { rule = { class = "Thunderbird" },
       properties = { tag = tags[scount][7] } },
 }
