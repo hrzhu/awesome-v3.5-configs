@@ -15,6 +15,9 @@ local scount = screen.count()
 -- Load Debian menu entries
 require("debian.menu")
 
+-- Volume
+require("volume")
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -223,6 +226,7 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
+    right_layout:add(volume_widget)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 
@@ -310,7 +314,14 @@ globalkeys = awful.util.table.join(
                   awful.util.getdir("cache") .. "/history_eval")
               end),
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end)
+    awful.key({ modkey }, "p", function() menubar.show() end),
+    -- Volume control
+    awful.key({ modkey }, "9", function ()
+       awful.util.spawn("amixer set Master 5%+", false) end),
+    awful.key({ modkey }, "0", function ()
+       awful.util.spawn("amixer set Master 5%-", false) end),
+    awful.key({ modkey }, "`",  function ()
+       awful.util.spawn("amixer -D pulse set Master 1+ toggle", false) end)
 )
 
 clientkeys = awful.util.table.join(
