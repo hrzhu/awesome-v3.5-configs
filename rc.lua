@@ -396,7 +396,7 @@ awful.rules.rules = {
       properties = { border_width = beautiful.border_width,
                      border_color = beautiful.border_normal,
                      focus = awful.client.focus.filter,
-                     --raise = true,
+                     raise = true,
                      size_hints_honor = false,
                      keys = clientkeys,
                      maximized_vertical   = false,
@@ -497,10 +497,10 @@ client.connect_signal("manage", function (c, startup)
     end
 
     -- Add titlebar to floaters, but remove those from rule callback
-    if awful.client.floating.get(c)
-    or awful.layout.get(c.screen) == awful.layout.suit.floating then
-        awful.titlebar.toggle(c)
-        end
+    --if awful.client.floating.get(c)
+    --or awful.layout.get(c.screen) == awful.layout.suit.floating then
+    --    awful.titlebar.toggle(c)
+    --    end
 end)
 
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
