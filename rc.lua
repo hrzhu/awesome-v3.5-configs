@@ -8,7 +8,7 @@ local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
-local naughty = require("naughty")
+--local naughty = require("naughty")
 local menubar = require("menubar")
 local scount = screen.count()
 
@@ -18,6 +18,7 @@ require("debian.menu")
 -- Volume
 require("volume")
 
+--[[
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -42,6 +43,7 @@ do
     end)
 end
 -- }}}
+--]]
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
@@ -406,12 +408,13 @@ awful.rules.rules = {
     { rule = { },
       properties = { border_width = beautiful.border_width,
                      border_color = beautiful.border_normal,
-                     focus = awful.client.focus.filter,
+                     --focus = awful.client.focus.filter,
                      raise = true,
+                     focus = true,
                      size_hints_honor = false,
                      keys = clientkeys,
-                     maximized_vertical   = false,
-                     maximized_horizontal = false,
+                     --maximized_vertical   = false,
+                     --maximized_horizontal = false,
                      buttons = clientbuttons } },
     { rule = { class = "MPlayer" },
       properties = { floating = true } },
@@ -425,9 +428,7 @@ awful.rules.rules = {
     { rule = { class = "Firefox",  instance = "Navigator" },
       properties = { tag = tags[1][4]  } },
     { rule = { class = "chromium-browser" },
-      properties = { tag = tags[1][5],
-                     maximized_vertical = true,
-                     maximized_horizontal = true } },
+      properties = { tag = tags[1][5]  } },
     --{ rule = { class = "Transmission" },
     --   properties = { tag = tags[1][8] } },
     { rule = { class = "Thunderbird" },
@@ -514,8 +515,8 @@ client.connect_signal("manage", function (c, startup)
     --    end
 end)
 
-client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
-client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
+client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
 -- newtork manager applet
