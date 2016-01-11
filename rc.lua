@@ -111,8 +111,8 @@ end
 --]]
 
 tags = {
-  names  = { "term", "dev", "dev2", "web", "reading", "im", "mail", "media" },
-  layout = { layouts[1], layouts[1], layouts[1], layouts[6], layouts[6], layouts[4], layouts[6], layouts[6]}}
+  names  = { "term", "dev", "dev2", "firefox", "chromium", "reading", "im", "mail", "media" },
+  layout = { layouts[1], layouts[1], layouts[1], layouts[6], layouts[6], layouts[6], layouts[4], layouts[6], layouts[6]}}
 
 for s = 1, scount do
   tags[s] = awful.tag(tags.names, s, tags.layout)
