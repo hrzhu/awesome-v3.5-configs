@@ -432,7 +432,7 @@ awful.rules.rules = {
     --{ rule = { class = "Transmission" },
     --   properties = { tag = tags[1][8] } },
     { rule = { class = "Thunderbird" },
-      properties = { tag = tags[scount][7] } },
+      properties = { tag = tags[1][8] } },
 }
 -- }}}
 
