@@ -318,11 +318,11 @@ globalkeys = awful.util.table.join(
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end),
     -- Volume control
-    awful.key({ modkey }, "9", function ()
+    awful.key({ modkey, "Shift" }, "9", function ()
        awful.util.spawn("amixer set Master 5%+", false) end),
-    awful.key({ modkey }, "0", function ()
+    awful.key({ modkey, "Shift" }, "0", function ()
        awful.util.spawn("amixer set Master 5%-", false) end),
-    awful.key({ modkey }, "`",  function ()
+    awful.key({ modkey, "Shift" }, "`",  function ()
        awful.util.spawn("amixer -D pulse set Master 1+ toggle", false) end)
 )
 
