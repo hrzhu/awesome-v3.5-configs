@@ -530,4 +530,4 @@ function run_once(cmd)
 end
 
 run_once("nm-applet")
-run_once("compton --backend glx --paint-on-overlay --vsync opengl-swc &")
+--run_once("compton --backend glx --paint-on-overlay --vsync opengl-swc &")
