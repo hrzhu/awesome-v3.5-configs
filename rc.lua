@@ -508,6 +508,11 @@ client.connect_signal("manage", function (c, startup)
         awful.titlebar.hide(c)
     end
 
+    -- No border if maximized
+    if c.maximized_horizontal and c.maximized_vertical then
+        c.border_width = 0
+    end
+
     -- Add titlebar to floaters, but remove those from rule callback
     --if awful.client.floating.get(c)
     --or awful.layout.get(c.screen) == awful.layout.suit.floating then
