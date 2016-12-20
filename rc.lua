@@ -427,6 +427,8 @@ awful.rules.rules = {
       properties = { tag = tags[1][4] } },
     { rule = { class = "chromium-browser" },
       properties = { tag = tags[1][5] } },
+    { rule = { class = "chrome" },
+      properties = { tag = tags[1][5] } },
     --{ rule = { class = "Transmission" },
     --   properties = { tag = tags[1][8] } },
     { rule = { class = "Thunderbird" },
